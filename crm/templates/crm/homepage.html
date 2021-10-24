@@ -1,0 +1,52 @@
+{% extends 'crm/base_two.html' %}
+
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'home_page' %}"><li><button class="btn btn-info" type="submit">Планы на сегодня</button></li></a>
+    <a href="{% url 'home_page_week' %}"><li><button class="btn btn-info" type="submit">Планы на неделю</button></li></a>
+    <a href="{% url 'home_page_late' %}"><li><button class="btn btn-info" type="submit">Просроченные события</button></li></a>
+    </ul1>
+    <br>
+    <p><h2>{{text}}</h2></p>
+    Запланировано: {{ reminders.count }}
+    {% if reminders.count == 1 %}
+        событие
+    {% elif reminders.count < 5 %}
+        события
+    {% else %}
+        событий
+    {% endif %}
+
+
+    <table class="table2">
+    <tbody>
+    <tr class="line">
+        <th>Клиент</th>
+        <th>Событие</th>
+        <th>Дата события</th>
+        <th>Информация</th>
+        <th>Автор</th>
+        <th>подробней</th>
+    </tr>
+    {% for el in reminders %}
+            <tr class="line">
+            <td>{{ el.client }}</td>
+            <td>{{ el.get_event_type_display }}</td>
+            <td>{{ el.deadline }}</td>
+            <td>{{ el.commentary | truncatewords:4}}</td>
+            <td>{{ el.author }}</td>
+            <td><a href="{% url 'detailed_reminder' el.id %}"> Подробнее </a></td>
+            </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+
+
+{% endblock %}

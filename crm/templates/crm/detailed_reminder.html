@@ -1,0 +1,23 @@
+{% extends 'crm/base.html' %}
+
+{% block title %}
+    {{ reminder.client_name}}
+{% endblock %}
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'update_reminder' reminder.id %}"><li><button class="btn btn-info" type="submit">Обновить данные</button></li></a>
+    <a href="{% url 'delete_reminder' reminder.id %}"><li><button class="btn btn-info" type="submit">Удалить данные</button></li></a>
+    </ul1><br><br>
+
+
+    <h2>{{ reminder.client}} </h2>
+        <hr>
+
+    <p> Событие: {{ reminder.get_event_type_display }}</p>
+    <p> Информация: {{ reminder.commentary}} </p>
+    <p> Дата звонка: {{ reminder.deadline}} </p>
+    <p> АВТОР : {{ reminder.author }}</p>
+
+
+{% endblock %}

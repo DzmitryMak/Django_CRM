@@ -1,0 +1,21 @@
+{% extends 'crm/base.html' %}
+
+{% block title %}
+    {{ deal.client}}
+{% endblock %}
+
+{% block content  %}
+        <ul1>
+    <a href="{% url 'update_deal' deal.id %}"><li><button class="btn btn-info" type="submit">Обновить данные</button></li></a>
+    <a href="{% url 'delete_deal' deal.id %}"><li><button class="btn btn-info" type="submit">Удалить данные</button></li></a>
+    </ul1><br><br>
+
+        <h2>{{ deal.client}} </h2>
+        <hr>
+
+    <p> Информация: {{ deal.commentary}} </p>
+    <p> Дата звонка: {{ deal.publish}} </p>
+    <p> АВТОР : {{ deal.author }}</p>
+
+
+{% endblock %}

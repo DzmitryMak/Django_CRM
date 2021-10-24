@@ -1,0 +1,21 @@
+{% extends 'crm/base.html' %}
+
+{% block title %}
+    {{ client.client_name}}
+{% endblock %}
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'update_call' call.id %}"><li><button class="btn btn-info" type="submit">Обновить данные</button></li></a>
+    <a href="{% url 'delete_call' call.id %}"><li><button class="btn btn-info" type="submit">Удалить данные</button></li></a>
+    </ul1><br><br>
+
+        <h2>{{ call.client}} </h2>
+        <hr>
+    <p> Звонок </p>
+    <p> Информация: {{ call.commentary}} </p>
+    <p> Дата звонка: {{ call.publish}} </p>
+    <p> АВТОР : {{ call.author }}</p>
+
+
+{% endblock %}

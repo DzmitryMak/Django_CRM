@@ -1,0 +1,15 @@
+{% extends 'crm/base_two.html' %}
+
+{% block title %}
+    Форма удаления
+{% endblock %}
+
+{% block content  %}
+    <h1>Вы действительно хотите удалить событие</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-success" type="button" onclick="history.back()">Нет, назад</button>
+        <button class="btn btn-danger" type="submit">Да, Удалить</button>
+    </form>
+
+{% endblock %}

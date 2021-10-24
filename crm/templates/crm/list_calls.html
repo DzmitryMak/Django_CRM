@@ -1,0 +1,36 @@
+{% extends 'crm/base_two.html' %}
+
+
+{% block title %}
+    План звонков
+{% endblock %}
+
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'create_call' %}"><li><button class="btn btn-info" type="submit">Создать звонок</button></li></a>
+    </ul1>
+    <br>
+    <br>
+    <h2> Все звонки</h2>
+    <table class="table2">
+    <tbody>
+    <tr class="line">
+        <th>Клиент</th>
+        <th>Информация</th>
+        <th>Дата</th>
+        <th>Автор</th>
+        <th>подробней</th>
+    </tr>
+    {% for el in calls %}
+            <tr class="line">
+                <td>{{ el.client }}</td>
+                <td>{{ el.commentary | truncatewords:4}}</td>
+                <td>{{ el.publish }}</td>
+                <td>{{ el.author }}</td>
+                <td><a href="{% url 'detailed_call' el.id %}"> Подробнее </a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

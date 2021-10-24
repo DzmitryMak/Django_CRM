@@ -1,0 +1,42 @@
+{% extends 'crm/base_two.html' %}
+
+
+{% block title %}
+    Список клиентов
+{% endblock %}
+
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'create_client' %}"><li><button class="btn btn-info" type="submit">Создать клиента</button></li></a>
+    </ul1>
+    <br>
+    <br>
+    <h2> Список клиентов</h2>
+
+        <table class="table2">
+    <tbody>
+    <tr class="line">
+        <th>Клиент</th>
+        <th>ЛПР</th>
+        <th>Тел</th>
+        <th>Информация</th>
+        <th>Запланировано событий</th>
+        <th>Автор</th>
+        <th>подробней</th>
+    </tr>
+    {% for el in clients %}
+        <tr class="line">
+            <td>{{ el.client_name }}</td>
+            <td>{{ el.lpr }}</td>
+            <td>{{ el.tel_number}}</td>
+            <td>{{ el.commentary | truncatewords:5 }}</td>
+            <td>{{ el.reminders.count }}</td>
+            <td>{{ el.author }}</td>
+        <td><a href="{% url 'detailed_client' el.id %}"> Подробнее </a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}

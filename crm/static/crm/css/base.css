@@ -1,0 +1,148 @@
+* {box-sizing: border-box}
+
+h2 {
+    margin-left: 20px;
+    color: darkblue;
+}
+
+form {
+    margin-left: 30%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+.header {
+    background: cadetblue;
+    height: 84px;
+    margin-top: 10px
+}
+
+
+.content1{
+    background: aliceblue;
+    min-height: 900px;
+    margin-top: 10px;
+    width: 100%;
+    float: left;
+    padding-left: 10px;
+}
+
+img {
+    width: 80px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+.content{
+    background: aliceblue;
+    min-height: 900px;
+    margin-top: 10px;
+    width: 30%;
+    float: left;
+    padding-left: 10px;
+}
+.sidebar {
+    background: aliceblue;
+    min-height: 900px;
+    margin-top: 10px;
+    width: 23%;
+    float: left;
+    padding-left: 10px;
+}
+.sidebar1 {
+    background: aliceblue;
+    min-height: 900px;
+    margin-top: 10px;
+    width: 23%;
+    float: left;
+    padding-left: 10px;
+}
+.sidebar2 {
+    background: aliceblue;
+    min-height: 900px;
+    margin-top: 10px;
+    width: 23%;
+    float: left;
+    padding-left: 10px;
+}
+
+
+.login {
+    float: right;
+    margin-right: 20px;
+
+    display: block;
+    transition: transform .6s ease;
+
+}
+
+
+ul li {
+    color: #fff;
+    float: left;
+    margin-top: 20px;
+    padding-left: 30px;
+    display: block;
+    transition: transform .6s ease;
+}
+
+ul li:hover, ul a:hover {
+    color: darkgreen;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.box1 {
+    border-style: inset;
+    border-color: darkslategrey;
+    width: 40%;
+    height: auto;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.table2 {
+    width: 95%;
+
+}
+.table1 {
+    width: 95%;
+
+}
+
+.line {
+    margin-bottom: 22px;
+}
+
+.line {
+    outline-style: inset;
+    outline-width: thin;
+
+}
+
+
+
+.default {
+   padding-bottom: 20px;
+}
+
+
+
+ul1 li {
+    color: darkslategray;
+    float: left;
+    padding-left: 20px;
+    display: block;
+    transition: transform .6s ease;
+}
+
+ul1 li:hover, ul1 a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+

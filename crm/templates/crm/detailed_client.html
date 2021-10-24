@@ -1,0 +1,87 @@
+{% extends 'crm/base.html' %}
+
+{% block title %}
+    {{ client.client_name}}
+{% endblock %}
+
+{% block content  %}
+    <ul1>
+    <a href="{% url 'update_client' client.id %}"><li><button class="btn btn-info" type="submit">Обновить данные</button></li></a>
+    </ul1><br><br>
+
+    <table class="table1">
+    <h2> {{ client.client_name}} </h2>
+    <tr class="line"><th>ЛПР</th><td>{{ client.lpr}}</td></tr>
+    <tr class="line"><th>Должность</th><td>{{ client.position}}</td></tr>
+    <tr class="line"><th>Контактный номер</th><td>{{ client.tel_number}}</td></tr>
+    <tr class="line"><th>Email</th><td>{{ client.email}}</td></tr>
+    <tr class="line"><th>Адрес производства</th><td>{{ client.adress }}</td></tr>
+    <tr class="line"><th>Информация</th><td>{{ client.commentary}}</td></tr>
+    <tr class="line"><th>Автор</th><td>{{ client.author}}</td></tr>
+
+    </table>
+    {% endblock %}
+
+
+
+
+    {% block calls %}
+        <ul1>
+    <a href="{% url 'create_call' %}"><li><button class="btn btn-info" type="submit">Добавить звонок</button></li></a>
+    </ul1><br><br>
+
+
+        <h4>История звонков</h4>
+        <hr>
+
+        <table class="table1">
+    {% for el in client.calls.order_by %}
+            <tr class="line1"> <th>{{ el.commentary | truncatewords:4}}</th></tr>
+            <tr class="line1"> <th>{{ el.publish }}</th></tr>
+            <tr class="line1"><th><a href="{% url 'detailed_call' el.id %}"> Подробнее </a><hr></th></tr>
+    {% endfor %}
+        </table>
+
+    {% endblock %}
+
+
+
+
+
+    {% block deals  %}
+        <ul1>
+    <a href="{% url 'create_deal' %}"><li><button class="btn btn-info" type="submit">Добавить сделку</button></li></a>
+    </ul1><br><br>
+        <h4>История сделок</h4>
+        <hr>
+
+        <table class="table1">
+    {% for el in client.deals.order_by %}
+            <tr class="line1"> <th>{{ el.commentary | truncatewords:4}}</th></tr>
+            <tr class="line1"> <th>{{ el.publish }}</th></tr>
+            <tr class="line1"><th><a href="{% url 'detailed_deal' el.id %}"> Подробнее </a><hr></th></tr>
+    {% endfor %}
+        </table>
+
+
+
+
+    {% endblock  %}
+
+    {% block plans  %}
+        <ul1>
+    <a href="{% url 'create_reminder' %}"><li><button class="btn btn-info" type="submit">Добавить напоминание</button></li></a>
+    </ul1><br><br>
+        <h4>Планы событий</h4>
+        <hr>
+
+
+        <table class="table1">
+    {% for el in client.reminders.order_by %}
+            <tr class="line1"> <th>{{ el.get_event_type_display}}</th></tr>
+            <tr class="line1"> <th>{{ el.commentary | truncatewords:4}}</th></tr>
+            <tr class="line1"> <th>{{ el.deadline }}</th></tr>
+            <tr class="line1"><th><a href="{% url 'detailed_deal' el.id %}"> Подробнее </a><hr></th></tr>
+    {% endfor %}
+        </table>
+    {% endblock  %}

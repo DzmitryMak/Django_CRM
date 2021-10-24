@@ -1,0 +1,10 @@
+{% extends 'crm/base_two.html' %}
+
+{% block title %}
+    Logout page
+{% endblock %}
+
+{% block content %}
+        you've been logged ou. You can login again: <br>
+        <a href="{% url 'login' %}">login</a>
+{% endblock %}
