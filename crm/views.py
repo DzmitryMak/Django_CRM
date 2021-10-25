@@ -61,7 +61,7 @@ def create_client(request):
         form = forms.ClientForm(request.POST)
         if form.is_valid():
             new_client = form.save(commit=False)
-            new_client.author = User.objects.first()
+            new_client.author = request.user
             new_client.save()
             return redirect('list_clients')
         else:
@@ -81,7 +81,7 @@ def create_call(request):
         form = forms.CallForm(request.POST)
         if form.is_valid():
             new_call = form.save(commit=False)
-            new_call.author = User.objects.first()
+            new_call.author = request.user
             new_call.save()
             return redirect('list_calls')
         else:
@@ -102,7 +102,7 @@ def create_deal(request):
         form = forms.DealForm(request.POST)
         if form.is_valid():
             new_deal = form.save(commit=False)
-            new_deal.author = User.objects.first()
+            new_deal.author = request.user
             new_deal.save()
             return redirect('list_deals')
         else:
@@ -123,7 +123,7 @@ def create_reminder(request):
         form = forms.ReminderForm(request.POST)
         if form.is_valid():
             new_reminder = form.save(commit=False)
-            new_reminder.author = User.objects.first()
+            new_reminder.author = request.user
             new_reminder.save()
             return redirect('list_reminders')
         else:
