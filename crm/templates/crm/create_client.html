@@ -8,12 +8,12 @@
     <h1>Форма добавления клиента</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.client_name }}<br>
-        {{ form.lpr }}<br>
+        {{ form.company }}<br>
+        {{ form.contact_name }}<br>
         {{ form.position }}<br>
-        {{ form.tel_number }}<br>
+        {{ form.phone }}<br>
         {{ form.email }}<br>
-        {{ form.adress }}<br>
+        {{ form.address }}<br>
         {{ form.commentary }}<br>
         {{ form.publish }}<br>
         <span>{{ error }}</span>

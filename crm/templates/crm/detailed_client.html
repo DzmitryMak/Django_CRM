@@ -1,7 +1,7 @@
 {% extends 'crm/base.html' %}
 
 {% block title %}
-    {{ client.client_name}}
+    {{ client.company }}
 {% endblock %}
 
 {% block content  %}
@@ -10,12 +10,12 @@
     </ul1><br><br>
 
     <table class="table1">
-    <h2> {{ client.client_name}} </h2>
-    <tr class="line"><th>ЛПР</th><td>{{ client.lpr}}</td></tr>
+    <h2> {{ client.company }} </h2>
+    <tr class="line"><th>ЛПР</th><td>{{ client.contact_name }}</td></tr>
     <tr class="line"><th>Должность</th><td>{{ client.position}}</td></tr>
-    <tr class="line"><th>Контактный номер</th><td>{{ client.tel_number}}</td></tr>
+    <tr class="line"><th>Контактный номер</th><td>{{ client.phone }}</td></tr>
     <tr class="line"><th>Email</th><td>{{ client.email}}</td></tr>
-    <tr class="line"><th>Адрес производства</th><td>{{ client.adress }}</td></tr>
+    <tr class="line"><th>Адрес производства</th><td>{{ client.address }}</td></tr>
     <tr class="line"><th>Информация</th><td>{{ client.commentary}}</td></tr>
     <tr class="line"><th>Автор</th><td>{{ client.author}}</td></tr>
 
@@ -81,7 +81,7 @@
             <tr class="line1"> <th>{{ el.get_event_type_display}}</th></tr>
             <tr class="line1"> <th>{{ el.commentary | truncatewords:4}}</th></tr>
             <tr class="line1"> <th>{{ el.deadline }}</th></tr>
-            <tr class="line1"><th><a href="{% url 'detailed_deal' el.id %}"> Подробнее </a><hr></th></tr>
+            <tr class="line1"><th><a href="{% url 'detailed_reminder' el.id %}"> Подробнее </a><hr></th></tr>
     {% endfor %}
         </table>
     {% endblock  %}

@@ -8,8 +8,8 @@ admin.site.register(models.Reminder)
 
 @admin.register(models.Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('client_name', 'lpr', 'tel_number', 'adress')
-    list_filter = ('client_name', 'adress')
-    search_fields = ('client_name', 'commentary')
-    ordering = ('client_name', 'adress')
+    list_display = ('company', 'contact_name', 'phone', 'address')
+    list_filter = ('company', 'address')
+    search_fields = ('company', 'commentary')
+    ordering = ('company', 'address')
 

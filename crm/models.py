@@ -4,13 +4,13 @@ from django.contrib.auth.models import User
 
 
 class Client(models.Model):
-    client_name = models.CharField('Название клиента', max_length=100)
+    company = models.CharField('Название клиента', max_length=100)
 
-    lpr = models.CharField('ФИО ЛПР-а', max_length=150)
+    contact_name = models.CharField('ФИО ЛПР-а', max_length=150)
     position = models.CharField('Должность', max_length=100)
-    tel_number = models.CharField('Телефон', max_length=100)
+    phone = models.CharField('Телефон', max_length=100)
     email = models.EmailField('Е-мэил', blank=True)
-    adress = models.CharField('Адрес', max_length=255)
+    address = models.CharField('Адрес', max_length=255)
     commentary = models.TextField('Коментарии')
     publish = models.DateTimeField('Дата создания', default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -20,7 +20,7 @@ class Client(models.Model):
         return f'/detail_client/{self.id}'
 
     def __str__(self):
-        return self.client_name
+        return self.company
 
 
 class Deal(models.Model):

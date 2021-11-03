@@ -27,9 +27,9 @@
     </tr>
     {% for el in clients %}
         <tr class="line">
-            <td>{{ el.client_name }}</td>
-            <td>{{ el.lpr }}</td>
-            <td>{{ el.tel_number}}</td>
+            <td>{{ el.company }}</td>
+            <td>{{ el.contact_name }}</td>
+            <td>{{ el.phone }}</td>
             <td>{{ el.commentary | truncatewords:5 }}</td>
             <td>{{ el.reminders.count }}</td>
             <td>{{ el.author }}</td>

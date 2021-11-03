@@ -7,20 +7,20 @@ from django.contrib.auth.forms import UserCreationForm
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['client_name',
-                  'lpr',
+        fields = ['company',
+                  'contact_name',
                   'position',
-                  'tel_number',
+                  'phone',
                   'email',
-                  'adress',
+                  'address',
                   'commentary',
                   'publish']
         widgets = {
-            'client_name': forms.TextInput(attrs={
+            'company': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Название клиента'
             }),
-            'lpr': forms.TextInput(attrs={
+            'contact_name': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'ФИО ЛПРа'
             }),
@@ -28,7 +28,7 @@ class ClientForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Должность ЛПРа'
             }),
-            'tel_number': forms.TextInput(attrs={
+            'phone': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Тел. номер'
             }),
@@ -36,7 +36,7 @@ class ClientForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'EMAIL'
             }),
-            'adress': forms.TextInput(attrs={
+            'address': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Адрес производства'
             }),
@@ -62,7 +62,7 @@ class CallForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Комментарии'
             }),
-            'publish': forms.DateTimeInput(attrs={
+            'publish': forms.DateInput(attrs={
                 'autocomplete': 'off',
                 'class': 'form-control',
             }),
@@ -101,7 +101,7 @@ class DealForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Комментарии'
             }),
-            'publish': forms.DateTimeInput(attrs={
+            'publish': forms.DateInput(attrs={
                 'autocomplete': 'off',
                 'class': 'form-control datetimepicker-input',
                 'data-target': '#datetimepicker1'
